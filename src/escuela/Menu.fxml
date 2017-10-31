@@ -6,8 +6,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="517.0" prefWidth="725.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+<AnchorPane id="AnchorPane" prefHeight="517.0" prefWidth="725.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <TableView layoutX="320.0" layoutY="44.0" prefHeight="473.0" prefWidth="391.0">
         <columns>
@@ -17,8 +16,10 @@
             <TableColumn prefWidth="105.0" text="Tutor" />
         </columns>
       </TableView>
-      <Button layoutX="84.0" layoutY="403.0" mnemonicParsing="false" text="Nuevo" />
-      <Button layoutX="185.0" layoutY="403.0" mnemonicParsing="false" text="Eliminar" />
+      <Button layoutX="63.0" layoutY="403.0" mnemonicParsing="false" text="Nuevo" />
+      <Button layoutX="178.0" layoutY="403.0" mnemonicParsing="false" text="Eliminar" />
       <ComboBox layoutX="320.0" layoutY="14.0" prefHeight="31.0" prefWidth="391.0" />
+      <Button layoutX="247.0" layoutY="14.0" mnemonicParsing="false" text="Añadir" />
+      <Button layoutX="242.0" layoutY="54.0" mnemonicParsing="false" text="Eliminar" />
    </children>
 </AnchorPane>
