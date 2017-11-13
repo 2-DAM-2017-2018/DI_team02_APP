@@ -5,6 +5,7 @@
  */
 package escuela_1;
 
+import Escuela.Aula;
 import java.util.List;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;

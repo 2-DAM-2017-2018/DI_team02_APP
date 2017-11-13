@@ -7,6 +7,7 @@ package Escuela;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Menu;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
@@ -37,50 +38,45 @@ public class MenuController {
     private Button Eliminarrecusobutton;
 
     private Escuela_1 mainapp;
-    
-       public MenuController() {
-    }
-        @FXML
-    private void initialize() {
-        // Initialize the person table with the two columns.
-        HorasColumn.setCellValueFactory(cellData -> cellData.getValue().firstNameProperty());
-        CursoColumn.setCellValueFactory(cellData -> cellData.getValue().secondNameProperty());
-        AsignaturaColumn.setCellValueFactory(cellData -> cellData.getValue().thirdNameProperty());
-        TutorColumn.setCellValueFactory(cellData -> cellData.getValue().lastNameProperty());
+    private Menu mainApp;
+    private Aula aula;
 
- 
+    public MenuController() {
+    }
+
+    @FXML
+    private void initialize() {
+      
+        HorasColumn.setCellValueFactory(cellData -> cellData.getValue());
+        CursoColumn.setCellValueFactory(cellData -> cellData.getValue());
+        AsignaturaColumn.setCellValueFactory(cellData -> cellData.getValue());
+        TutorColumn.setCellValueFactory(cellData -> cellData.getValue());
+
         showAulaDetails(null);
 
-   
         HorasColumn.getSelectionModel().selectedItemProperty().addListener(
                 (observable, oldValue, newValue) -> showAulaDetails(newValue));
 
     }
 
-    private void showAulaDetails(Aula aula) {
-        if (aula!=null) {
-           
-            
-            
-            
-            
-        }
-        else
-        {
-        
-        
-        
-        
-        }
-   
+    
+        public void setMainApp(Menu mainApp) {
+        this.mainApp = mainApp;
+
+        // Add observable list data to the table
+        //AulaTable.setItems(mainApp.());
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
+    private void showAulaDetails(Aula aula) {
+        if (aula != null) {
+           HorasColumn.setText();
+        } else {
+             HorasColumn.setText("");
+             CursoColumn.setText("");
+             AsignaturaColumn.setText("");
+             TutorColumn.setText("");
+        }
+
+    }
+
 }

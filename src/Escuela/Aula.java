@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package escuela_1;
+package Escuela;
 
+import com.sun.glass.ui.Application;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
@@ -12,7 +13,7 @@ import javafx.beans.property.StringProperty;
  *
  * @author agd19
  */
-public class Aula 
+public abstract class Aula extends Application
 {
     private final StringProperty asignatura;
     private final StringProperty curso;
@@ -89,5 +90,7 @@ public class Aula
     {
         this.dia.set(dia);
     }
-    
+    /*  public ObservableList<Aula> getAulaData() {
+        return AulaData();
+    }*/
 }

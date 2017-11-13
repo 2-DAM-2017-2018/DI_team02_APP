@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package escuela_1;
+package Escuela;
 
 import java.awt.TextField;
 import javafx.fxml.FXML;
