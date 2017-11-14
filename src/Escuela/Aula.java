@@ -5,7 +5,6 @@
  */
 package Escuela;
 
-import com.sun.glass.ui.Application;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
@@ -13,8 +12,9 @@ import javafx.beans.property.StringProperty;
  *
  * @author agd19
  */
-public abstract class Aula extends Application
+public class Aula 
 {
+    private final StringProperty nombreRecurso;
     private final StringProperty asignatura;
     private final StringProperty curso;
     private final StringProperty hora;
@@ -24,10 +24,11 @@ public abstract class Aula extends Application
     
     public Aula ()
     {
-        this(null, null, null, null, null, null);
+        this(null, null, null, null, null, null, null);
     }
 
-    public Aula(String asignatura, String curso, String hora, String tutor, String mes, String dia) {
+    public Aula(String nombreRecurso, String asignatura, String curso, String hora, String tutor, String mes, String dia) {
+        this.nombreRecurso = new SimpleStringProperty(nombreRecurso);
         this.asignatura = new SimpleStringProperty (asignatura);
         this.curso = new SimpleStringProperty (curso);
         this.hora = new SimpleStringProperty (hora);
@@ -35,24 +36,55 @@ public abstract class Aula extends Application
         this.mes = new SimpleStringProperty (mes);
         this.dia = new SimpleStringProperty (dia);
     }
-
-    public StringProperty getAsignatura() {
+    
+    public String getNombreRecurso() {
+        return nombreRecurso.get();
+    }
+    
+    public StringProperty NombreRecursoProperty(){
+        return nombreRecurso;
+    }
+    
+    public void setNombreRecurso(String nombreRecurso){
+        this.nombreRecurso.set(nombreRecurso);
+    }
+    public String getAsignatura(){
+        return asignatura.get();
+    }
+    
+    public StringProperty AsignaturaProperty() {
         return asignatura;
     }
-
-    public StringProperty getCurso() {
+    
+    public String getCurso(){
+        return curso.get();
+    }
+    
+    public StringProperty CursoProperty() {
         return curso;
     }
-
-    public StringProperty getHora() {
+    
+    public String getHora(){
+        return hora.get();
+    }
+    
+    public StringProperty HoraProperty() {
         return hora;
     }
-
-    public StringProperty getTutor() {
+    
+    public String getTutor(){
+        return tutor.get();
+    }
+    
+    public StringProperty TutorProperty() {
         return tutor;
     }
-
-    public StringProperty getMes() {
+    
+    public String getMes(){
+        return mes.get();
+    }
+    
+    public StringProperty MesProperty() {
         return mes;
     }
     
@@ -81,7 +113,11 @@ public abstract class Aula extends Application
         this.mes.set(mes);
     }
     
-    public StringProperty getDia()
+    public String getDia(){
+        return dia.get();
+    }
+    
+    public StringProperty DiaProperty()
     {
         return dia;
     }
@@ -90,7 +126,5 @@ public abstract class Aula extends Application
     {
         this.dia.set(dia);
     }
-    /*  public ObservableList<Aula> getAulaData() {
-        return AulaData();
-    }*/
+    
 }
