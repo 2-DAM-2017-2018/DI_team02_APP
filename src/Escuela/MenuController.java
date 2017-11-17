@@ -39,7 +39,7 @@ public class MenuController {
     @FXML
     private Button Eliminarrecusobutton;
 
-    private Escuela_1 mainapp;
+    private Mainapp mainapp;
     private Menu mainApp;
     private Aula aula;
 
@@ -83,7 +83,8 @@ public class MenuController {
         }
 
     }
-      @FXML
+
+    @FXML
     private void handleDeletePerson() {
         int selectedIndex = AulaTable.getSelectionModel().getSelectedIndex();
         if (selectedIndex >= 0) {
@@ -91,7 +92,7 @@ public class MenuController {
         } else {
             // Nothing selected.
             Alert alert = new Alert(Alert.AlertType.WARNING);
-         //   alert.initOwner(mainApp.get());
+            //   alert.initOwner(mainApp.get());
             alert.setTitle("No Selection");
             alert.setHeaderText("No Person Selected");
             alert.setContentText("Please select a person in the table.");
