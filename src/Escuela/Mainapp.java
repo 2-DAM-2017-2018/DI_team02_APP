@@ -50,7 +50,7 @@ public class Mainapp extends Application{
 
         initRootLayout();
 
-        showPersonOverview();
+        showAulaOverview();
     }
 
     /**
@@ -104,11 +104,11 @@ public class Mainapp extends Application{
     /**
      * Shows the person overview inside the root layout.
      */
-    public void showPersonOverview() {
+    public void showAulaOverview() {
         try {
             // Load person overview.
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(Mainapp.class.getResource("view/PersonOverview.fxml"));
+            loader.setLocation(Mainapp.class.getResource("Menu.fxml"));
             AnchorPane personOverview = (AnchorPane) loader.load();
 
             // Set person overview into the center of root layout.
@@ -116,7 +116,7 @@ public class Mainapp extends Application{
 
             // Give the controller access to the main app.
             MenuController controller = loader.getController();
-            controller.setMainApp(this);
+//            controller.showAulaDetails(this);
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -128,7 +128,6 @@ public class Mainapp extends Application{
      * clicks OK, the changes are saved into the provided person object and true
      * is returned.
      *
-     * @param person the person object to be edited
      * @return true if the user clicked OK, false otherwise.
      */
     public boolean Crear_aula(Aula aula) {
@@ -156,7 +155,7 @@ public class Mainapp extends Application{
             // Show the dialog and wait until the user closes it
             dialogStage.showAndWait();
 
-            return controller.isOkClicked();
+            return controller.();
         } catch (IOException e) {
             e.printStackTrace();
             return false;

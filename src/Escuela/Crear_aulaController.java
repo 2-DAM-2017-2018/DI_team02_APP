@@ -23,11 +23,14 @@ public class Crear_aulaController {
     private Stage dialogStage;
     private Aula aula;
     private boolean okClicked = false;
-            
+    
+    
+    
      /**
      * Initializes the controller class. This method is automatically called
      * after the fxml file has been loaded.
      */
+            
     @FXML
     private void initialize() {
     };

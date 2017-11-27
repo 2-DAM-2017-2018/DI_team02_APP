@@ -44,6 +44,9 @@ public class MenuController {
     private Aula aula;
 
     public MenuController() {
+        
+        
+        
     }
 
     @FXML
