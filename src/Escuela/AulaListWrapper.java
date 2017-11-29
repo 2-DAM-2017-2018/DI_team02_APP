@@ -26,5 +26,5 @@ public class AulaListWrapper {
     public void setPersons(List<Aula> persons) {
         this.aula = persons;
     }
-    
+
 }

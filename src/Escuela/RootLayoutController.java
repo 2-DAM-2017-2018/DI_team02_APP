@@ -109,9 +109,8 @@ public class RootLayoutController {
     private void handleExit() {
         System.exit(0);
     }
-    
+
     /**
-    * Opens the birthday statistics.
-    */
- 
+     * Opens the birthday statistics.
+     */
 }
