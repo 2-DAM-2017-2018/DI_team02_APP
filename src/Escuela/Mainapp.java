@@ -271,8 +271,4 @@ public class Mainapp extends Application{
     /**
      * Opens a dialog to show birthday statistics.
      */
-
-
-  
-
 }
