@@ -16,6 +16,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javax.xml.bind.JAXBContext;
@@ -30,6 +31,8 @@ public class Mainapp extends Application{
     
     private ArrayList<Aula> recursos = new ArrayList<>();
     private Stage primaryStage;
+    private AnchorPane rootLayout;
+    //private RootLayoutController rootLayout;
     
     /**
      * @param args the command line arguments
@@ -49,9 +52,9 @@ public class Mainapp extends Application{
         // set the application icon
         //this.primaryStage.getIcons().add(new Image("file:resources/images/MailIcon.png"));
 
-        //initRootLayout();
+        initRootLayout();
 
-        showAulaOverview();
+        //showAulaOverview();
     }
 
     /**
@@ -74,19 +77,19 @@ public class Mainapp extends Application{
     /**
      * Initializes the root layout.
      */
-    /*public void initRootLayout() {
+    public void initRootLayout() {
         try {
             // Load root layout from fxml file.
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(Mainapp.class.getResource(".fxml"));
-            rootLayout = (BorderPane) loader.load();
+            loader.setLocation(Mainapp.class.getResource("Menu.fxml"));
+            rootLayout = (AnchorPane) loader.load();
 
             // Show the scene containing the root layout.
             Scene scene = new Scene(rootLayout);
             primaryStage.setScene(scene);
 
             // Give the controller access to the main app.
-            RootLayoutController controller = loader.getController();
+            MenuController controller = loader.getController();
             controller.setMainApp(this);
 
             primaryStage.show();
@@ -99,7 +102,7 @@ public class Mainapp extends Application{
         if (file != null) {
             loadAulaDataFromFile(file);
         }
-    }*/
+    }
 
     /**
      * Shows the person overview inside the root layout.
@@ -114,7 +117,7 @@ public class Mainapp extends Application{
             
             // Give the controller access to the main app.
             MenuController controller = loader.getController();
-//            controller.showAulaDetails(this);
+            //controller.showAulaDetails(this);
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -271,4 +274,8 @@ public class Mainapp extends Application{
     /**
      * Opens a dialog to show birthday statistics.
      */
+
+
+  
+
 }

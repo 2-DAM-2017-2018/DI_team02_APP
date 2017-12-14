@@ -19,7 +19,7 @@ public class Crear_aulaController {
     
     @FXML
     private TextField NuevaAula;
-    
+    private Mainapp mainapp;
     private Stage dialogStage;
     private Aula aula;
     private boolean okClicked = false;
@@ -86,7 +86,12 @@ public class Crear_aulaController {
         dialogStage.close();
     }
     
-     /**
+    public void setMainApp(Mainapp mainApp) {
+         this.mainapp = mainApp;
+    }
+       
+   
+     /*
      * Validates the user input in the text fields.
      * 
      * @return true if the input is valid

@@ -24,14 +24,6 @@ public class AulaListWrapper {
     }
 
     public void setRecurso(List<Aula> persons) {
-    
-    }
-    public List<Aula> getPersons() {
-        return aula;
-    }
-
-    public void setPersons(List<Aula> persons) {
-
         this.aula = persons;
     }
 

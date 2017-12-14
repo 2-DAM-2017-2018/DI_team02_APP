@@ -46,7 +46,6 @@ public class MenuController {
     private Button Eliminarrecusobutton;
 
     private Mainapp mainapp;
-    private Menu mainApp;
     private Aula aula;
     private boolean NuevoClicked = false;
     private Stage dialogStage;
@@ -78,8 +77,8 @@ public class MenuController {
 
     }
 
-    public void setMainApp(Menu mainApp) {
-        this.mainApp = mainApp;
+    public void setMainApp(Mainapp mainApp) {
+        this.mainapp = mainApp;
 
         // Add observable list data to the table
         //AulaTable.setItems(mainApp.());
@@ -128,12 +127,12 @@ public class MenuController {
                  try {
             // Load the fxml file and create a new stage for the popup dialog.
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(Mainapp.class.getResource("Menu_reservar_recurso.fxml"));
+            loader.setLocation(Mainapp.class.getResource("Menu.fxml"));
             AnchorPane page = (AnchorPane) loader.load();
 
             // Create the dialog Stage.
             Stage dialogStage = new Stage();
-            dialogStage.setTitle("Reserva Recurso");
+            dialogStage.setTitle("Menu Principal");
             dialogStage.initModality(Modality.WINDOW_MODAL);
             dialogStage.initOwner(dialogStage);
             Scene scene = new Scene(page);
@@ -158,7 +157,7 @@ public class MenuController {
                  try {
             // Load the fxml file and create a new stage for the popup dialog.
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(Mainapp.class.getResource("Crear_aulaController.fxml"));
+            loader.setLocation(Mainapp.class.getResource("Crear_aula.fxml"));
             AnchorPane page = (AnchorPane) loader.load();
 
             // Create the dialog Stage.
