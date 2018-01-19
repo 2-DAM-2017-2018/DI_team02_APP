@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="517.0" prefWidth="725.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.recurso.vista.MenuController">
+   <children>
+      <TableView fx:id="ReservaTable" layoutX="320.0" layoutY="44.0" onSort="#initialize" prefHeight="473.0" prefWidth="391.0">
+        <columns>
+          <TableColumn fx:id="DiaColumn" prefWidth="75.0" text="Dia" />
+            <TableColumn fx:id="NameColumn" prefWidth="96.0" text="Recurso" />
+            <TableColumn prefWidth="113.0" text="Asignatura" />
+            <TableColumn prefWidth="105.0" text="Tutor" />
+        </columns>
+      </TableView>
+      <Button layoutX="63.0" layoutY="403.0" mnemonicParsing="false" onAction="#handleNewReserva" text="Nuevo" />
+      <Button layoutX="178.0" layoutY="403.0" mnemonicParsing="false" onAction="#handleDeleteReserva" text="Eliminar" />
+      <ComboBox fx:id="comboRecursos" layoutX="320.0" layoutY="14.0" prefHeight="31.0" prefWidth="391.0" />
+      <Button layoutX="247.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleNewResource" text="Añadir" />
+      <Button layoutX="242.0" layoutY="54.0" mnemonicParsing="false" onAction="#handleDeleteResource" text="Eliminar" />
+   </children>
+</AnchorPane>
