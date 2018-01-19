@@ -105,7 +105,12 @@ public class MenuController {
     private void handleDeleteResource(){
         int selectedIndex = comboRecursos.getSelectionModel().getSelectedIndex();
         if (selectedIndex >= 0) {
-            
+            for (int i = 0; i < mainApp.getRecursoData().size(); i++) {
+                if(mainApp.getRecursoData().get(i).getNombre().equals(comboRecursos.getSelectionModel().getSelectedItem().toString()))
+                {
+                    mainApp.getRecursoData().remove(i);
+                }
+            }
             comboRecursos.getItems().remove(selectedIndex);
         } else {
             // Nothing selected.
