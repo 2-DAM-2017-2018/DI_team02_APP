@@ -19,6 +19,7 @@ import javafx.scene.control.TableView;
  * @author agd19
  */
 public class MenuController {
+
     @FXML
     private TableView<ReservaRecurso> ReservaTable;
     @FXML
@@ -26,15 +27,18 @@ public class MenuController {
     @FXML
     private TableColumn<ReservaRecurso, String> DiaColumn;
     @FXML
+    private TableColumn<ReservaRecurso, String> HorasColumn;
+    @FXML
+    private TableColumn<ReservaRecurso, String> Nombre_P_Column;
+    @FXML
     private ComboBox comboRecursos;
-    
+
     private MainApp mainApp;
-    
-    public MenuController() 
-    {
-        
+
+    public MenuController() {
+
     }
-    
+
     /**
      * Initializes the controller class. This method is automatically called
      * after the fxml file has been loaded.
@@ -44,25 +48,26 @@ public class MenuController {
         // Initialize the person table with the two columns.
         NameColumn.setCellValueFactory(cellData -> cellData.getValue().getRecurso().NombreProperty());
         DiaColumn.setCellValueFactory(cellData -> cellData.getValue().DiaProperty());
-        
+        HorasColumn.setCellValueFactory(cellData -> cellData.getValue().HorasProperty());
+        Nombre_P_Column.setCellValueFactory(cellData -> cellData.getValue().getNombre_p());
+
     }
-    
+
     /**
      * Is called by the main application to give a reference back to itself.
-     * 
+     *
      * @param mainApp
      */
     public void setMainApp(MainApp mainApp) {
         this.mainApp = mainApp;
         ReservaTable.setItems(mainApp.getReservaData());
-        
-        for (int i = 0; i < mainApp.getRecursoData().size(); i++) 
-        {
+
+        for (int i = 0; i < mainApp.getRecursoData().size(); i++) {
             comboRecursos.getItems().add(mainApp.getRecursoData().get(i).getNombre());
-            
+
         }
     }
-    
+
     @FXML
     private void handleDeleteReserva() {
         int selectedIndex = ReservaTable.getSelectionModel().getSelectedIndex();
@@ -79,7 +84,7 @@ public class MenuController {
             alert.showAndWait();
         }
     }
-    
+
     /**
      * Called when the user clicks the new button. Opens a dialog to edit
      * details for a new person.
@@ -92,22 +97,20 @@ public class MenuController {
             mainApp.getRecursoData().add(tempRecurso);
             //comboRecursos.getItems().add(tempRecurso.getNombre().toString());
             comboRecursos.getItems().clear();
-            for (int i = 0; i < mainApp.getRecursoData().size(); i++) 
-        {
-            
-            comboRecursos.getItems().add(mainApp.getRecursoData().get(i).getNombre());
-            
-        }
+            for (int i = 0; i < mainApp.getRecursoData().size(); i++) {
+
+                comboRecursos.getItems().add(mainApp.getRecursoData().get(i).getNombre());
+
+            }
         }
     }
-    
+
     @FXML
-    private void handleDeleteResource(){
+    private void handleDeleteResource() {
         int selectedIndex = comboRecursos.getSelectionModel().getSelectedIndex();
         if (selectedIndex >= 0) {
             for (int i = 0; i < mainApp.getRecursoData().size(); i++) {
-                if(mainApp.getRecursoData().get(i).getNombre().equals(comboRecursos.getSelectionModel().getSelectedItem().toString()))
-                {
+                if (mainApp.getRecursoData().get(i).getNombre().equals(comboRecursos.getSelectionModel().getSelectedItem().toString())) {
                     mainApp.getRecursoData().remove(i);
                 }
             }
@@ -122,27 +125,23 @@ public class MenuController {
 
             alert.showAndWait();
         }
-        
+
     }
-    
+
     @FXML
-    private void handleNewReserva(){
+    private void handleNewReserva() {
         ReservaRecurso reserva = new ReservaRecurso();
         //Recurso r5 = new Recurso();
         //r5.setNombre(comboRecursos.getSelectionModel().getSelectedItem().toString());
         //reserva.setRecurso(r5);
         //reserva.setDia("1");
         boolean okClicked = mainApp.showReservaEditDialog(reserva);
-        
+
         if (okClicked) {
             mainApp.getReservaData().add(reserva);
             ReservaTable.setItems(mainApp.getReservaData());
-            
+
         }
     }
-    
-   
-    
-    
-    
+
 }

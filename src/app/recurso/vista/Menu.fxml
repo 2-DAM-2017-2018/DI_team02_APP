@@ -12,9 +12,9 @@
       <TableView fx:id="ReservaTable" layoutX="320.0" layoutY="44.0" onSort="#initialize" prefHeight="473.0" prefWidth="671.0">
         <columns>
           <TableColumn fx:id="DiaColumn" prefWidth="183.0" text="Fecha" />
-            <TableColumn prefWidth="163.0" text="Nombre" />
+            <TableColumn fx:id="Nombre_P_Column" prefWidth="163.0" text="Nombre" />
             <TableColumn fx:id="NameColumn" minWidth="0.0" prefWidth="182.0" text="Recurso" />
-            <TableColumn prefWidth="139.0" text="Horas" />
+            <TableColumn fx:id="HorasColumn" prefWidth="139.0" text="Horas" />
         </columns>
       </TableView>
       <Button layoutX="51.0" layoutY="403.0" mnemonicParsing="false" onAction="#handleNewReserva" text="Nueva Reserva">
