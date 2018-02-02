@@ -24,15 +24,14 @@ import javafx.stage.Stage;
  *
  * @author agd19
  */
-public class MainApp extends Application{
+public class MainApp extends Application {
 
     private Stage primaryStage;
     private AnchorPane rootLayout;
-    
+
     private ObservableList<Recurso> RecursoData = FXCollections.observableArrayList();
     private ObservableList<ReservaRecurso> ReservaData = FXCollections.observableArrayList();
-    
-    
+
     @Override
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
@@ -41,7 +40,7 @@ public class MainApp extends Application{
         CargarMenu();
 
     }
-    
+
     /**
      * Constructor
      */
@@ -50,36 +49,37 @@ public class MainApp extends Application{
         RecursoData.add(new Recurso("patio"));
         RecursoData.add(new Recurso("aula musica"));
         RecursoData.add(new Recurso("biblioteca"));
-        
+
         Recurso r1 = new Recurso("patio");
         Recurso r2 = new Recurso("aula musica");
         Recurso r3 = new Recurso("biblioteca");
-        
-        ReservaRecurso rr1 = new ReservaRecurso(r1,"12","","");
-        ReservaRecurso rr2 = new ReservaRecurso(r2,"23","","");
-        ReservaRecurso rr3 = new ReservaRecurso(r3,"30","","");
-        
+
+        ReservaRecurso rr1 = new ReservaRecurso(r1, "12", "", "");
+        ReservaRecurso rr2 = new ReservaRecurso(r2, "23", "", "");
+        ReservaRecurso rr3 = new ReservaRecurso(r3, "30", "", "");
+
         ReservaData.add(rr1);
         ReservaData.add(rr2);
         ReservaData.add(rr3);
-        
+
     }
-     /**
-     * Returns the data as an observable list of Persons. 
+
+    /**
+     * Returns the data as an observable list of Persons.
+     *
      * @return
      */
     public ObservableList<Recurso> getRecursoData() {
         return RecursoData;
     }
-    
+
     public ObservableList<ReservaRecurso> getReservaData() {
         return ReservaData;
     }
-    
-    
+
     public void CargarMenu() {
         try {
-             // Load Menu layout from fxml file.
+            // Load Menu layout from fxml file.
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(MainApp.class
                     .getResource("vista/Menu.fxml"));
@@ -98,7 +98,7 @@ public class MainApp extends Application{
             e.printStackTrace();
         }
     }
-    
+
     public boolean showResourceEditDialog(Recurso recurso) {
         try {
             // Load the fxml file and create a new stage for the popup dialog.
@@ -118,7 +118,7 @@ public class MainApp extends Application{
             Crear_aulaController controller = loader.getController();
             controller.setDialogStage(dialogStage);
             controller.setResource(recurso);
-            System.out.println("Recurso creado ---> "+recurso.getNombre());
+            System.out.println("Recurso creado ---> " + recurso.getNombre());
 
             // Show the dialog and wait until the user closes it
             dialogStage.showAndWait();
@@ -129,7 +129,7 @@ public class MainApp extends Application{
             return false;
         }
     }
-    
+
     public boolean showReservaEditDialog(ReservaRecurso reserva) {
         try {
             // Load the fxml file and create a new stage for the popup dialog.
@@ -150,11 +150,10 @@ public class MainApp extends Application{
             controller.setDialogStage(dialogStage);
             controller.setMainApp(this);
             controller.setReserva(reserva);
-            
+
             //ReservaData.add(reserva);
             //System.out.println("dia creado ---> "+reserva.getDia());
             //System.out.println("recurso creado --->"+reserva.getRecurso().getNombre());
-
             // Show the dialog and wait until the user closes it
             dialogStage.showAndWait();
 
@@ -164,16 +163,14 @@ public class MainApp extends Application{
             return false;
         }
     }
-    
-    
+
     public Stage getPrimaryStage() {
         return primaryStage;
     }
-    
+
     public static void main(String[] args) {
         launch(args);
         System.out.println("Hola mundo");
     }
-    
-    
+
 }

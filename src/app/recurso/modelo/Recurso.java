@@ -16,8 +16,6 @@ public class Recurso {
 
     private final StringProperty nombre;
 
- 
-
     public Recurso() {
         this(null);
     }

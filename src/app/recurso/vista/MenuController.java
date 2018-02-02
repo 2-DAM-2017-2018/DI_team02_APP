@@ -35,6 +35,7 @@ public class MenuController {
 
     private MainApp mainApp;
     private Menu_reservar_recursoController reser;
+
     public MenuController() {
 
     }
@@ -135,45 +136,38 @@ public class MenuController {
         //r5.setNombre(comboRecursos.getSelectionModel().getSelectedItem().toString());
         //reserva.setRecurso(r5);
         //reserva.setDia("1");
-        boolean isReservado=false;
+        boolean isReservado = false;
         boolean okClicked = mainApp.showReservaEditDialog(reserva);
-        
+
         for (int i = 0; i < mainApp.getReservaData().size(); i++) {
-                if(mainApp.getReservaData().get(i).getRecurso().getNombre().equals(reserva.getRecurso().getNombre()))
-                {
-                    System.out.println("El nombre se repite");
-                    if(mainApp.getReservaData().get(i).getDia().equals(reserva.getDia()))
-                    {
-                        System.out.println("El dia coincide");
-                        if(mainApp.getReservaData().get(i).getHoras().toString().equals(reserva.getHoras().toString()))
-                        {
-                            System.out.println("La hora coinciden no se deberia guardar");
-                            isReservado= true;
-                        }else{
-                            isReservado=false;
-                        }
-                    }else{
-                        isReservado=false;
-                    }
-                }else{
-                    isReservado=false;
-                }
-            }
+            if (mainApp.getReservaData().get(i).getRecurso().getNombre().equals(reserva.getRecurso().getNombre())) {
+                System.out.println("El nombre se repite");
+                if (mainApp.getReservaData().get(i).getDia().equals(reserva.getDia())) {
+                    System.out.println("El dia coincide");
+                    if (mainApp.getReservaData().get(i).getHoras().toString().equals(reserva.getHoras().toString())) {
+                        System.out.println("La hora coinciden no se deberia guardar");
+                        isReservado = true;
+                        Alert alert = new Alert(Alert.AlertType.WARNING);
+                        alert.initOwner(mainApp.getPrimaryStage());
+                        alert.setTitle("ERROR RESERVANDO!");
+                        alert.setHeaderText("Recurso ya reservado");
+                        alert.setContentText("Por favor, comprueba el dia, la hora y el recurso.");
+                        alert.showAndWait();
+                    } 
+                } 
+            } 
+        }
 
         if (okClicked) {
 
             //if (reser.isReservado()==false) {
-            
-                if(isReservado!=true)
-                {
-                    mainApp.getReservaData().add(reserva);
-                    ReservaTable.setItems(mainApp.getReservaData());
-                }
+            if (isReservado != true) {
+                mainApp.getReservaData().add(reserva);
+                ReservaTable.setItems(mainApp.getReservaData());
+            }
             //}
 
         }
     }
-
-    
 
 }
