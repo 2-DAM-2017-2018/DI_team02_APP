@@ -165,6 +165,7 @@ public class MainApp extends Application{
         }
     }
     
+    
     public Stage getPrimaryStage() {
         return primaryStage;
     }
@@ -173,5 +174,6 @@ public class MainApp extends Application{
         launch(args);
         System.out.println("Hola mundo");
     }
+    
     
 }

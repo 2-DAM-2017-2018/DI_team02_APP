@@ -92,6 +92,16 @@ public class Menu_reservar_recursoController {
     public boolean isOkClicked() {
         return okClicked;
     }
+    
+    /*public boolean isReservado(){
+        boolean repite = false;
+        if(reservado()==true)
+        {
+            repite = true;
+        }
+        
+        return repite;
+    }*/
 
     /**
      * Called when the user clicks ok.
@@ -100,6 +110,7 @@ public class Menu_reservar_recursoController {
     private void handleOk() {
         //if (isInputValid()) {
         //reserva.setNombre(NameField.getText());
+        
         reserva.setDia(dia.getSelectionModel().getSelectedItem().toString());
         recurso = new Recurso();
         recurso.setNombre(resource.getSelectionModel().getSelectedItem().toString());
@@ -108,23 +119,48 @@ public class Menu_reservar_recursoController {
         okClicked = true;
         System.out.println("Recurso creado -> " + recurso.getNombre());
         StringProperty v = null;
-        Object va = "banana";
+        Object va = "";
         va = nombre_p.getText();
         v = new SimpleStringProperty(nombre_p.getText());
         reserva.setNombre_p(v);
         System.out.println(v);
         StringProperty v1 = null;
         v1 = new SimpleStringProperty(horas.getSelectionModel().getSelectedItem().toString());
+        System.out.println("Hora que se está reservando ------->"+v1);
         reserva.setHoras(v1);
 
         dialogStage.close();
-
+        
+        
+        
         //}
     }
+    
+    /*public boolean reservado() {
+        boolean r = false;
+        for (int i = 0; i < mainApp.getReservaData().size(); i++) 
+        {
+            if (mainApp.getReservaData().get(i).getRecurso().getNombre().equals(reserva.getRecurso().getNombre())) 
+            {
+                if (mainApp.getReservaData().get(i).getDia().equals(reserva.getDia())) 
+                {
+                    if (mainApp.getReservaData().get(i).getHoras() == reserva.getHoras()) 
+                    {
+                        r = true;
+                    }
+                }
+            }
+
+        }
+
+        return r;
+    }*/
 
     /**
      * Called when the user clicks cancel.
      */
+
+
     @FXML
     private void handleCancel() {
         dialogStage.close();
