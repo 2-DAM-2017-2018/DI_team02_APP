@@ -92,6 +92,7 @@ public class MenuController {
      */
     @FXML
     private void handleNewResource() {
+        
         Recurso tempRecurso = new Recurso();
         boolean okClicked = mainApp.showResourceEditDialog(tempRecurso);
         if (okClicked) {
@@ -109,13 +110,21 @@ public class MenuController {
     @FXML
     private void handleDeleteResource() {
         int selectedIndex = comboRecursos.getSelectionModel().getSelectedIndex();
+        String nombreRecurso = "";
         if (selectedIndex >= 0) {
             for (int i = 0; i < mainApp.getRecursoData().size(); i++) {
                 if (mainApp.getRecursoData().get(i).getNombre().equals(comboRecursos.getSelectionModel().getSelectedItem().toString())) {
-                    mainApp.getRecursoData().remove(i);
+                    nombreRecurso = mainApp.getRecursoData().get(i).getNombre();
+                    mainApp.getRecursoData().remove(i);                   
                 }
             }
             comboRecursos.getItems().remove(selectedIndex);
+            for (int i = 0; i < mainApp.getReservaData().size(); i++) {
+                if(nombreRecurso.equals(mainApp.getReservaData().get(i).getRecurso().getNombre()))
+                {
+                    ReservaTable.getItems().remove(i);
+                }
+            }
         } else {
             // Nothing selected.
             Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -132,35 +141,33 @@ public class MenuController {
     @FXML
     private void handleNewReserva() {
         ReservaRecurso reserva = new ReservaRecurso();
-        //Recurso r5 = new Recurso();
-        //r5.setNombre(comboRecursos.getSelectionModel().getSelectedItem().toString());
-        //reserva.setRecurso(r5);
-        //reserva.setDia("1");
         boolean isReservado = false;
         boolean okClicked = mainApp.showReservaEditDialog(reserva);
 
-        for (int i = 0; i < mainApp.getReservaData().size(); i++) {
-            if (mainApp.getReservaData().get(i).getRecurso().getNombre().equals(reserva.getRecurso().getNombre())) {
-                System.out.println("El nombre se repite");
-                if (mainApp.getReservaData().get(i).getDia().equals(reserva.getDia())) {
-                    System.out.println("El dia coincide");
-                    if (mainApp.getReservaData().get(i).getHoras().toString().equals(reserva.getHoras().toString())) {
-                        System.out.println("La hora coinciden no se deberia guardar");
-                        isReservado = true;
-                        Alert alert = new Alert(Alert.AlertType.WARNING);
-                        alert.initOwner(mainApp.getPrimaryStage());
-                        alert.setTitle("ERROR RESERVANDO!");
-                        alert.setHeaderText("Recurso ya reservado");
-                        alert.setContentText("Por favor, comprueba el dia, la hora y el recurso.");
-                        alert.showAndWait();
+        if(reserva.getRecurso() != null)
+        {
+            for (int i = 0; i < mainApp.getReservaData().size(); i++) {
+                if (mainApp.getReservaData().get(i).getRecurso().getNombre().equals(reserva.getRecurso().getNombre())) {
+                    System.out.println("El nombre se repite");
+                    if (mainApp.getReservaData().get(i).getDia().equals(reserva.getDia())) {
+                        System.out.println("El dia coincide");
+                        if (mainApp.getReservaData().get(i).getHoras().toString().equals(reserva.getHoras().toString())) {
+                            System.out.println("La hora coinciden no se deberia guardar");
+                            isReservado = true;
+                            Alert alert = new Alert(Alert.AlertType.WARNING);
+                            alert.initOwner(mainApp.getPrimaryStage());
+                            alert.setTitle("ERROR RESERVANDO!");
+                            alert.setHeaderText("Recurso ya reservado");
+                            alert.setContentText("Por favor, comprueba el dia, la hora y el recurso.");
+                            alert.showAndWait();
+                        } 
                     } 
                 } 
-            } 
+            }
         }
 
         if (okClicked) {
 
-            //if (reser.isReservado()==false) {
             if (isReservado != true) {
                 mainApp.getReservaData().add(reserva);
                 ReservaTable.setItems(mainApp.getReservaData());

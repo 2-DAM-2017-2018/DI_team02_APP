@@ -6,9 +6,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.recurso.vista.Crear_aulaController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="background" stylesheets="@BlueTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.recurso.vista.Crear_aulaController">
    <children>
-      <Label layoutX="107.0" layoutY="145.0" text="Nueva Aula" />
+      <Label layoutX="107.0" layoutY="145.0" styleClass="label-bright" text="Nueva Aula" />
       <TextField fx:id="NameField" layoutX="203.0" layoutY="140.0" prefHeight="31.0" prefWidth="324.0" />
       <Button layoutX="183.0" layoutY="251.0" mnemonicParsing="false" onAction="#handleOk" text="Añadir" />
       <Button layoutX="344.0" layoutY="251.0" mnemonicParsing="false" onAction="#handleCancel" text="Cancelar" />

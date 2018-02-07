@@ -11,6 +11,7 @@ import app.recurso.modelo.ReservaRecurso;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -41,6 +42,7 @@ public class Menu_reservar_recursoController {
      */
     @FXML
     private void initialize() {
+        nombre_p.setText(" ");
         for (int i = 1; i <= 31; i++) {
             dia.getItems().add(i);
 
@@ -108,9 +110,11 @@ public class Menu_reservar_recursoController {
      */
     @FXML
     private void handleOk() {
-        //if (isInputValid()) {
-        //reserva.setNombre(NameField.getText());
+        int selectedIndex = dia.getSelectionModel().getSelectedIndex();
+        int selectedIndex1 = horas.getSelectionModel().getSelectedIndex();
+        int selectedIndex2 = resource.getSelectionModel().getSelectedIndex();
         
+        if(selectedIndex>=0&& selectedIndex1>=0&&selectedIndex2>=0&&!" ".equals(nombre_p.getText())){
         reserva.setDia(dia.getSelectionModel().getSelectedItem().toString());
         recurso = new Recurso();
         recurso.setNombre(resource.getSelectionModel().getSelectedItem().toString());
@@ -119,17 +123,25 @@ public class Menu_reservar_recursoController {
         okClicked = true;
         System.out.println("Recurso creado -> " + recurso.getNombre());
         StringProperty v = null;
-        Object va = "";
-        va = nombre_p.getText();
         v = new SimpleStringProperty(nombre_p.getText());
         reserva.setNombre_p(v);
-        System.out.println(v);
+        System.out.println("Nombre profesor"+v);
         StringProperty v1 = null;
         v1 = new SimpleStringProperty(horas.getSelectionModel().getSelectedItem().toString());
         System.out.println("Hora que se está reservando ------->"+v1);
         reserva.setHoras(v1);
 
         dialogStage.close();
+        } else {
+            // Nothing selected.
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.initOwner(mainApp.getPrimaryStage());
+            alert.setTitle("No Selection");
+            alert.setHeaderText("Reservation incompleted!");
+            alert.setContentText("Please complete all fields ");
+
+            alert.showAndWait();
+        }
         
         
         

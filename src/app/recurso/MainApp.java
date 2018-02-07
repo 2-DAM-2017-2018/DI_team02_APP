@@ -54,9 +54,9 @@ public class MainApp extends Application {
         Recurso r2 = new Recurso("aula musica");
         Recurso r3 = new Recurso("biblioteca");
 
-        ReservaRecurso rr1 = new ReservaRecurso(r1, "12", "", "");
-        ReservaRecurso rr2 = new ReservaRecurso(r2, "23", "", "");
-        ReservaRecurso rr3 = new ReservaRecurso(r3, "30", "", "");
+        ReservaRecurso rr1 = new ReservaRecurso(r1, "12", "chacho", "");
+        ReservaRecurso rr2 = new ReservaRecurso(r2, "23", "chucha", "");
+        ReservaRecurso rr3 = new ReservaRecurso(r3, "30", "chocho", "");
 
         ReservaData.add(rr1);
         ReservaData.add(rr2);
