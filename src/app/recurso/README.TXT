@@ -15,19 +15,19 @@ WARNING:
 Usos permitidos:
 ----------------
 
-Unica y exclusivamente para lo creado(Reserveas de recursos).
+Unica y exclusivamente para lo creado(Reservas de recursos).
 
-Copias y distribución:
+Copias y distribucion:
 ----------------------
 
 - Usted puede hacer las copia que quiera de este software.
 
 
 
-Dirección de los Autores
+Direccion de los Autores
 ------------------------
 
-Av. Andalucía, 46, 18300 Loja, Granada
+Av. Andalucia, 46, 18300 Loja, Granada
 
 e-mail: a.garcia@ponienteformacion.com|m.gonzalez@ponienteformacion.com
 
