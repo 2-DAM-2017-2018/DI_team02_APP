@@ -17,7 +17,7 @@
             <TableColumn fx:id="HorasColumn" prefWidth="139.0" text="Horas" />
         </columns>
       </TableView>
-      <Button layoutX="14.0" layoutY="403.0" mnemonicParsing="false" onAction="#handleNewReserva" text="Nueva Reserva">
+      <Button layoutX="6.0" layoutY="403.0" mnemonicParsing="false" onAction="#handleNewReserva" text="Nueva Reserva">
          <tooltip>
             <Tooltip text="Muestra la ventana para crear una nueva reserva" />
          </tooltip></Button>
@@ -29,11 +29,11 @@
          <tooltip>
             <Tooltip text="Muestra los recursos existentes" />
          </tooltip></ComboBox>
-      <Button layoutX="117.0" layoutY="13.0" mnemonicParsing="false" onAction="#handleNewResource" text="Añadir Recurso">
+      <Button layoutX="113.0" layoutY="13.0" mnemonicParsing="false" onAction="#handleNewResource" prefHeight="33.0" prefWidth="160.0" text="Añadir Recurso">
          <tooltip>
             <Tooltip text="Despliega una ventana para añadir un nuevo recurso" />
          </tooltip></Button>
-      <Button layoutX="112.0" layoutY="53.0" mnemonicParsing="false" onAction="#handleDeleteResource" text="Eliminar Recurso">
+      <Button layoutX="112.0" layoutY="53.0" mnemonicParsing="false" onAction="#handleDeleteResource" prefHeight="33.0" prefWidth="160.0" text="Eliminar Recurso">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>

@@ -56,7 +56,7 @@ public class MainApp extends Application {
 
         ReservaRecurso rr1 = new ReservaRecurso(r1, "12", "chacho", "");
         ReservaRecurso rr2 = new ReservaRecurso(r2, "23", "chucha", "");
-        ReservaRecurso rr3 = new ReservaRecurso(r3, "30", "chocho", "");
+        ReservaRecurso rr3 = new ReservaRecurso(r3, "30", "chele", "");
 
         ReservaData.add(rr1);
         ReservaData.add(rr2);
@@ -170,7 +170,7 @@ public class MainApp extends Application {
 
     public static void main(String[] args) {
         launch(args);
-        System.out.println("Hola mundo");
+
     }
 
 }

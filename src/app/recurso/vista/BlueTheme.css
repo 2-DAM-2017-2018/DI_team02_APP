@@ -9,7 +9,7 @@ and open the template in the editor.
 */
 
 .background {
-    -fx-background-color: #BCA9F5;
+    -fx-background-color: #809ef7;
 }
 
 .label {
@@ -104,16 +104,14 @@ and open the template in the editor.
 }
 
 /* 
- * Metro style Push Button
- * Author: Pedro Duque Vieira
- * http://pixelduke.wordpress.com/2012/10/23/jmetro-windows-8-controls-on-java/
+
  */
 .button {
     -fx-padding: 5 22 5 22;   
     -fx-border-color: #e2e2e2;
     -fx-border-width: 2;
     -fx-background-radius: 0;
-    -fx-background-color: #1d1d1d;
+    -fx-background-color: #000000;
     -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
     -fx-font-size: 11pt;
     -fx-text-fill: #d8d8d8;
@@ -121,7 +119,7 @@ and open the template in the editor.
 }
 
 .button:hover {
-    -fx-background-color: #ff33ff;
+    -fx-background-color: #35313d;
 }
 
 .button:pressed, .button:default:hover:pressed {
