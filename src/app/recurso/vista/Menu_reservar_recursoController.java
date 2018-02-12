@@ -53,8 +53,7 @@ public class Menu_reservar_recursoController {
     }
 
     /**
-     * Is called by the main application to give a reference back to itself.
-     *
+     * Is called by the main application to give a reference back to itself.     *
      * @param mainApp
      */
     public void setMainApp(MainApp mainApp) {
@@ -82,8 +81,7 @@ public class Menu_reservar_recursoController {
      */
     public void setReserva(ReservaRecurso reserva) {
         this.reserva = reserva;
-
-        //NameField.setText(reserva.);
+     
     }
 
     /**
@@ -94,17 +92,7 @@ public class Menu_reservar_recursoController {
     public boolean isOkClicked() {
         return okClicked;
     }
-    
-    /*public boolean isReservado(){
-        boolean repite = false;
-        if(reservado()==true)
-        {
-            repite = true;
-        }
-        
-        return repite;
-    }*/
-
+  
     /**
      * Called when the user clicks ok.
      */
@@ -113,25 +101,25 @@ public class Menu_reservar_recursoController {
         int selectedIndex = dia.getSelectionModel().getSelectedIndex();
         int selectedIndex1 = horas.getSelectionModel().getSelectedIndex();
         int selectedIndex2 = resource.getSelectionModel().getSelectedIndex();
-        
-        if(selectedIndex>=0&& selectedIndex1>=0&&selectedIndex2>=0&&!" ".equals(nombre_p.getText())){
-        reserva.setDia(dia.getSelectionModel().getSelectedItem().toString());
-        recurso = new Recurso();
-        recurso.setNombre(resource.getSelectionModel().getSelectedItem().toString());
-        System.out.println("Elemento recurso a reservar ---> " + resource.getSelectionModel().getSelectedItem().toString());
-        reserva.setRecurso(recurso);
-        okClicked = true;
-        System.out.println("Recurso creado -> " + recurso.getNombre());
-        StringProperty v = null;
-        v = new SimpleStringProperty(nombre_p.getText());
-        reserva.setNombre_p(v);
-        System.out.println("Nombre profesor"+v);
-        StringProperty v1 = null;
-        v1 = new SimpleStringProperty(horas.getSelectionModel().getSelectedItem().toString());
-        System.out.println("Hora que se está reservando ------->"+v1);
-        reserva.setHoras(v1);
 
-        dialogStage.close();
+        if (selectedIndex >= 0 && selectedIndex1 >= 0 && selectedIndex2 >= 0 && !" ".equals(nombre_p.getText())) {
+            reserva.setDia(dia.getSelectionModel().getSelectedItem().toString());
+            recurso = new Recurso();
+            recurso.setNombre(resource.getSelectionModel().getSelectedItem().toString());
+            System.out.println("Elemento recurso a reservar ---> " + resource.getSelectionModel().getSelectedItem().toString());
+            reserva.setRecurso(recurso);
+            okClicked = true;
+            System.out.println("Recurso creado -> " + recurso.getNombre());
+            StringProperty v = null;
+            v = new SimpleStringProperty(nombre_p.getText());
+            reserva.setNombre_p(v);
+            System.out.println("Nombre profesor" + v);
+            StringProperty v1 = null;
+            v1 = new SimpleStringProperty(horas.getSelectionModel().getSelectedItem().toString());
+            System.out.println("Hora que se está reservando ------->" + v1);
+            reserva.setHoras(v1);
+
+            dialogStage.close();
         } else {
             // Nothing selected.
             Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -142,37 +130,12 @@ public class Menu_reservar_recursoController {
 
             alert.showAndWait();
         }
-        
-        
-        
-        //}
+
     }
-    
-    /*public boolean reservado() {
-        boolean r = false;
-        for (int i = 0; i < mainApp.getReservaData().size(); i++) 
-        {
-            if (mainApp.getReservaData().get(i).getRecurso().getNombre().equals(reserva.getRecurso().getNombre())) 
-            {
-                if (mainApp.getReservaData().get(i).getDia().equals(reserva.getDia())) 
-                {
-                    if (mainApp.getReservaData().get(i).getHoras() == reserva.getHoras()) 
-                    {
-                        r = true;
-                    }
-                }
-            }
-
-        }
-
-        return r;
-    }*/
 
     /**
      * Called when the user clicks cancel.
      */
-
-
     @FXML
     private void handleCancel() {
         dialogStage.close();

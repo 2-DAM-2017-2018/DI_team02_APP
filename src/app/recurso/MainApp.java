@@ -151,9 +151,6 @@ public class MainApp extends Application {
             controller.setMainApp(this);
             controller.setReserva(reserva);
 
-            //ReservaData.add(reserva);
-            //System.out.println("dia creado ---> "+reserva.getDia());
-            //System.out.println("recurso creado --->"+reserva.getRecurso().getNombre());
             // Show the dialog and wait until the user closes it
             dialogStage.showAndWait();
 

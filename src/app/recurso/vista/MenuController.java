@@ -92,7 +92,7 @@ public class MenuController {
      */
     @FXML
     private void handleNewResource() {
-        
+
         Recurso tempRecurso = new Recurso();
         boolean okClicked = mainApp.showResourceEditDialog(tempRecurso);
         if (okClicked) {
@@ -115,13 +115,12 @@ public class MenuController {
             for (int i = 0; i < mainApp.getRecursoData().size(); i++) {
                 if (mainApp.getRecursoData().get(i).getNombre().equals(comboRecursos.getSelectionModel().getSelectedItem().toString())) {
                     nombreRecurso = mainApp.getRecursoData().get(i).getNombre();
-                    mainApp.getRecursoData().remove(i);                   
+                    mainApp.getRecursoData().remove(i);
                 }
             }
             comboRecursos.getItems().remove(selectedIndex);
             for (int i = 0; i < mainApp.getReservaData().size(); i++) {
-                if(nombreRecurso.equals(mainApp.getReservaData().get(i).getRecurso().getNombre()))
-                {
+                if (nombreRecurso.equals(mainApp.getReservaData().get(i).getRecurso().getNombre())) {
                     ReservaTable.getItems().remove(i);
                 }
             }
@@ -144,8 +143,7 @@ public class MenuController {
         boolean isReservado = false;
         boolean okClicked = mainApp.showReservaEditDialog(reserva);
 
-        if(reserva.getRecurso() != null)
-        {
+        if (reserva.getRecurso() != null) {
             for (int i = 0; i < mainApp.getReservaData().size(); i++) {
                 if (mainApp.getReservaData().get(i).getRecurso().getNombre().equals(reserva.getRecurso().getNombre())) {
                     System.out.println("El nombre se repite");
@@ -160,12 +158,12 @@ public class MenuController {
                             alert.setHeaderText("Recurso ya reservado");
                             alert.setContentText("Por favor, comprueba el dia, la hora y el recurso.");
                             alert.showAndWait();
-                        } 
-                    } 
-                } 
+                        }
+                    }
+                }
             }
         }
-
+    
         if (okClicked) {
 
             if (isReservado != true) {
