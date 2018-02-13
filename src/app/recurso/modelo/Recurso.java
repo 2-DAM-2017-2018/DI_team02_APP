@@ -11,6 +11,7 @@ import javafx.beans.property.StringProperty;
 /**
  *
  * @author agd19
+ * clase recurso
  */
 public class Recurso {
 

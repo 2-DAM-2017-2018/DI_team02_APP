@@ -9,12 +9,12 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 /**
+ * clase reservar recurso
  *
  * @author agd19
  */
 public class ReservaRecurso {
 
-    //private final StringProperty nombre_p;
     private Recurso recurso;
     private StringProperty dia;
     private StringProperty nombre_p;
